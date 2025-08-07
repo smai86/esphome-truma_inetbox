@@ -9,7 +9,7 @@ namespace uart {
 
 class truma_ESP32ArduinoUARTComponent : public ESP32ArduinoUARTComponent {
  public:
-  HardwareSerial *get_hw_serial() { return this->hw_serial_; }
+  HardwareSerial *get_hw_serial() { return this->hw_serial1_; }
   uint8_t get_hw_serial_number() { return this->number_; }
 };
 
