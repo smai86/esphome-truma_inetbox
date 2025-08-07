@@ -87,7 +87,7 @@ void ESP32ArduinoUARTComponent::setup() {
   is_default_rx = rx_pin_ == nullptr || rx_pin_->get_pin() == 3;
 #endif
   if (is_default_tx && is_default_rx) {
-    this->hw_serial_ = &Serial;
+    this->hw_serial_ = &Serial1;
   } else {
     static uint8_t next_uart_num = 1;
     this->number_ = next_uart_num;
