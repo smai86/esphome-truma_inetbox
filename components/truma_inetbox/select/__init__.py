@@ -68,12 +68,11 @@ def set_default_based_on_type():
     return set_defaults_
 
 
-
-SELECT_SCHEMA_BASE = select.select_schema({})
+# Use new schema API (ESPHome 2025.11.0+)
+SELECT_SCHEMA_BASE = select.select_schema(TrumaSelect)
 
 CONFIG_SCHEMA = cv.Schema({
     **SELECT_SCHEMA_BASE.schema,
-    cv.GenerateID(): cv.declare_id(TrumaSelect),
     cv.GenerateID(CONF_TRUMA_INETBOX_ID): cv.use_id(TrumaINetBoxApp),
     cv.Required(CONF_TYPE): cv.one_of(*CONF_SUPPORTED_TYPE.keys()),
     cv.Optional(CONF_ICON): cv.icon,
